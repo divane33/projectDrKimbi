@@ -1,0 +1,65 @@
+
+
+.manageBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.manageBlock h1 {
+    font-size: 30px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.manageBlock .sectionUser{
+    /* border: 2px solid; */
+    min-width: 65%; max-width: 65%;
+    min-height: 18vh; max-height: 18vh;
+    border-radius: 20px;
+    display: flex;
+    padding: 2%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    transition: 0.3s ease;
+    background: linear-gradient(to left, rgb(250, 207, 126), red);
+}
+.manageBlock .sectionUser:hover {
+    scale: 1.02;
+}
+
+.manageBlock .sectionUser img{
+    max-width: 20%;
+    max-height: 21vh; min-height: 21vh;
+}
+
+.manageBlock .sectionUser .infos{
+    /* border: 2px solid; */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 0;
+}
+
+.manageBlock .sectionUser .infos h2, .manageBlock .sectionUser .infos h4{
+    color: white;
+    text-shadow: 3px 3px black;
+}
+
+.manageBlock .sectionUser button{
+    padding:  0 2%;
+    height: 10vh;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+.manageBlock .sectionUser button:hover{
+    scale: 1.05;
+    box-shadow: 2px 2px 4px black;
+}

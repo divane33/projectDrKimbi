@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+}
+
+.homecss{
+   /* border: 2px solid blue; */
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.627), rgba(0, 0, 0, 0.627)), url('/images/disasterBack.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homecss #imgLogo{
+    /* border: 2px solid; */
+    height: 45%;
+    width: 30%;
+    filter: drop-shadow(8px 8px 48px white);
+    animation: img 0.6s linear;
+}
+@keyframes img {
+    0%{
+        margin-top: -20%;
+        opacity: 0;
+    }
+}
+.homecss h1{
+    color: white;
+    font-size: 45px;
+    -webkit-text-stroke: 2px white;
+    margin-bottom: 1%;
+    /*border: 1px solid;*/
+    width: auto;
+    animation: showTextLogo 0.6s linear;
+}
+@keyframes showTextLogo {
+    0%{
+       margin-left: -60%;
+       opacity: 0;
+    }
+}
+.homecss #presentation{
+    font-size: 21px;
+    padding: 0 8% 0 8%;
+    text-align: center;
+    color: white;
+    animation: para 0.6s linear;
+}
+@keyframes para {
+    0%{
+        margin-top: 30%;
+        opacity: 0;
+    }
+}
+.homecss #presentation span{
+    color: white;
+}
+.homecss #button{
+    padding: 1.2% 2.2% 1.2% 2.2%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border-radius: 20px;
+    background: linear-gradient(to left, rgb(116, 114, 114), rgb(29, 29, 29));
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+    animation: buton 1s linear infinite, button 0.6s linear;
+    transform: rotate(-2deg);
+}
+@keyframes button {
+    0%{
+        margin-right: -50%;
+        opacity: 0;
+    }
+}
+@keyframes buton {
+    50%{
+        transform: rotate(2deg);
+    }
+}
+.homecss #button:hover{
+    transform: scale(1.05);
+    box-shadow: 4px 4px 8px white;
+    cursor: pointer;
+}
+.homecss #button::before{
+    display: block;
+    content: "";
+    position: absolute;
+    left: -30%;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    transform: skew(-30deg);
+    background: rgba(255, 255, 255, 0.425);
+    animation: lumineux 3s linear infinite;
+}
+@keyframes lumineux {
+    45%{
+       left: 120%;
+    }
+    100%{
+        left: 120%;
+     }
+}
+.homecss a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}

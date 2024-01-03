@@ -1,0 +1,128 @@
+.dashboardBlock{
+    /* border: 2px solid red; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dashboardBlock::before{
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    /* border: 2px solid red; */
+    width: 25%;
+    height: 50%;
+    content: "";
+    border-radius: 0 0 100% 0;
+    z-index: -2;
+    background: rgba(193, 248, 207, 0.774);
+}
+.dashboardBlock::after{
+    position: fixed;
+    display: block;
+    bottom: 0;
+    right: 0;
+    /* border: 2px solid red; */
+    width: 25%;
+    height: 50%;
+    content: "";
+    border-radius: 100% 0 0 0;
+    z-index: -2;
+    background: rgba(193, 248, 207, 0.774);
+}
+
+.dashboardBlock form{
+    /* border: 2px solid; */
+    width: 60%;
+    margin-top: 3%;
+}
+.dashboardBlock form input:nth-child(1){
+    /* border: 2px solid green; */
+    border: none;
+    width: 70%;
+    padding: 2%;
+    font-size: 15px;
+    border-radius: 30px 0 0 30px;
+    background: rgb(153, 181, 212);
+}
+.dashboardBlock form input:nth-child(1)::placeholder{
+    color: rgb(88, 119, 155);
+}
+.dashboardBlock form input:nth-child(1):focus{
+    outline: none;
+}
+
+.dashboardBlock form input:nth-child(2){
+    border: none;
+    font-size: 15px;
+    padding: 2%;
+    border-radius: 0 30px 30px 0;
+    background: rgb(45, 91, 143);
+    color: white;
+    text-shadow: 2px 2px 8px black;
+}
+
+#titreNouvelle{
+    width: 50%;
+    margin-top: 3%;
+    margin-left: 5%;
+    border-bottom: 4px solid;
+    align-self: first baseline;
+    color: rgb(38, 74, 116);
+    margin-bottom: 2%;
+}
+.lastNews{
+    /* border: 2px solid; */
+    width: 95%;
+    min-height: 75vh;
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    margin-bottom: 4%;
+}
+.section{
+    /* border: 2px solid green; */
+    min-width: 40%;
+    min-height: 65vh;
+    max-width: 40%;
+    max-height: 65vh;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 7px 7px 14px rgb(42, 100, 57);
+    margin-bottom: 1.5%;
+    margin-top: 1.5%;
+    transition: 0.3s ease;
+    background: radial-gradient(rgb(223, 242, 250), rgb(145, 208, 245));
+    margin: 1.5%;
+}
+.section:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.section img{
+    min-height: 73%;
+    max-height: 73%;
+    width: 100%;
+}
+.section2{
+    /* border: 2px solid blue; */
+    min-height: 27%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5% 4% 0 4%;
+}
+.section2 h3{
+    font-size: 21px;
+}
+.section2 p{
+    font-size: 14px;
+    color: rgb(41, 40, 40);
+}
+
+#Categories-nouvelles{
+    color: rgb(28, 54, 85);
+    font-size: 30px;
+}

@@ -1,0 +1,162 @@
+.signin-block{
+    margin: 0;
+    padding: 0;
+    -webkit-text-stroke: none;
+}
+
+ h1{
+    color: black;
+    -webkit-text-stroke: 0;
+ }
+
+ *{
+    color: black;
+}
+
+.signin-block{
+    /* border: 1px solid black; */
+    color: red;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 244, 238);
+    animation: intro 0.45s linear;
+}
+@keyframes intro {
+    0%{
+       width: 0;
+       height: 0;
+       opacity: 0;
+    }
+}
+.signin-block::before{
+    position: absolute;
+    border-radius: 0 0 0 100%;
+    background: radial-gradient(rgb(224, 206, 104), rgb(133, 106, 33));
+    width: 20%;
+    height: 40%;
+    display: block;
+    content: "";
+    top: 0;
+    right: 0;
+}
+.signin-block::after{
+    position: absolute;
+    border-radius: 0 100% 0 0;
+    background: radial-gradient(rgb(224, 206, 104), rgb(133, 106, 33));
+    width: 30%;
+    height: 60%;
+    display: block;
+    content: "";
+    bottom: 0;
+    left: 0;
+}
+@keyframes aft {
+    0%{
+        right: 60%;
+        opacity: 0;
+    }
+}
+
+.signin-block .formDiv{
+    /* border: 1px solid black; */
+    width: 50%;
+    height: 70%;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(rgb(240, 230, 178), rgb(179, 159, 104));
+    box-shadow: 6px 6px 20px rgb(95, 84, 55);
+    z-index: 2;
+}
+.formDiv1{
+    /* border: 2px solid green; */
+    width: 43%;
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 4px solid green;
+}
+.formDiv1 img{
+    width: 60%;
+    height: 42%;
+}
+.formDiv1 span:nth-child(2){
+    color: rgb(39, 38, 38);
+    font-size: 16px;
+    font-style: normal;
+    margin-bottom: none;
+}
+.formDiv1 span:nth-child(3){
+    color: rgb(0, 89, 255);
+    font-size: 14px;
+    margin-bottom: none;
+    text-decoration: underline;
+}
+.formDiv1 span:nth-child(3):hover{
+    cursor: pointer;
+}
+.formDiv1 a{
+    color: rgb(0, 89, 255);
+    font-size: 14px;
+    margin-bottom: none;
+    text-decoration: underline;
+}
+.formDiv2{
+    /* border: 2px solid green; */
+    width: 57%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formDiv2 form{
+    /* border: 3px solid rgb(3, 173, 3); */
+    padding: 8% 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8%;
+    width: 65%;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.308);
+}
+.formDiv2 form label{
+    font-size: 15px;
+    margin-bottom: 1%;
+}
+.formDiv2 form input{
+    width: 90%;
+    margin-bottom: 2.5%;
+    padding: 2%;
+    padding-left: 4%;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+}
+.formDiv2 form input:focus{
+    outline: none;
+}
+.formDiv2 #submitButton{
+    margin-top: 5%;
+    border-radius: 0;
+    margin-top: 10%;
+    padding: 4%;
+    background: rgb(2, 156, 228);
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    /* text-shadow: 1px 1px 14px black; */
+}
+.formDiv2 #submitButton:hover{
+    cursor: pointer;
+}

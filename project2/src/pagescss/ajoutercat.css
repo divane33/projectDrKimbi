@@ -1,0 +1,70 @@
+.ajoutCatBlock{
+    /* border: 2px solid; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.ajoutCatBlock h1{
+    font-size: 29px;
+    margin-top: 4%;
+}
+
+.ajoutCatBlock form{
+    border-radius: 20px;
+    margin-top: 2%;
+    width: 60%;
+    padding: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right,rgb(243, 224, 188), rgb(248, 193, 91));
+    box-shadow: 4px 4px 9px black;
+}
+.ajoutCatBlock form input{
+    width: 80%;
+    padding: 1.5% 2%;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 2%;
+}
+.ajoutCatBlock form label{
+    font-size: 17px;
+    font-style: normal;
+}
+.ajoutCatBlock form input:focus{
+    outline: none;
+}
+#selections{
+    width: 80%;
+    padding: 1.5% 2%;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    margin: 1% 0;
+    color: rgb(71, 71, 71);
+    margin-bottom: 2%;
+}
+#selections option{
+    font-size: 16px;
+    color: rgb(71, 71, 71);
+}
+
+#imgupload{
+    max-height: 40vh;
+    width: 70%;
+    margin-top: 2%;
+}
+
+#envoie{
+    margin-top: 5%;
+    padding: 2%;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background: rgb(126, 49, 4);
+    box-shadow: 3px 3px rgb(56, 24, 2);
+}
