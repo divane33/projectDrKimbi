@@ -11,20 +11,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    background-color: rgb(228, 247, 228);
+    /* background-color: white;
+    background-color: rgb(228, 247, 228); */
 }
 .signupBlock::before{
     position: absolute;
     border-radius: 0 0 100% 0;
-    background: radial-gradient(rgb(104, 224, 104), rgb(33, 133, 33));
+    background: radial-gradient(rgb(217, 241, 217), rgb(186, 224, 186));
     width: 20%;
     height: 40%;
     display: block;
     content: "";
     top: 0;
     left: 0;
-    animation: bef 0.5s linear;
+    animation: bef 0.4s linear;
 }
 @keyframes bef {
     0%{
@@ -35,14 +35,14 @@
 .signupBlock::after{
     position: absolute;
     border-radius: 100% 0 0 0;
-    background: radial-gradient(rgb(104, 224, 104), rgb(33, 133, 33));
+    background: radial-gradient(rgb(217, 241, 217), rgb(186, 224, 186));
     width: 40%;
     height: 50%;
     display: block;
     content: "";
     bottom: 0;
     right: 0;
-    animation: aft 0.5s linear;
+    animation: aft 0.4s linear;
 }
 @keyframes aft {
     0%{
@@ -63,7 +63,7 @@
     background: radial-gradient(rgb(200, 236, 144), rgb(153, 201, 77));
     box-shadow: 6px 6px 20px green;
     z-index: 2;
-    animation: form 0.5s linear;
+    animation: form 0.4s linear;
 }
 @keyframes form {
     0%{
@@ -84,6 +84,9 @@
 .formDiv1 img{
     width: 60%;
     height: 42%;
+}
+.formDiv1 img:hover {
+    cursor: pointer;
 }
 .formDiv1 span:nth-child(2){
     color: rgb(39, 38, 38);

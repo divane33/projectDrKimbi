@@ -6,6 +6,29 @@
     align-items: center;
 }
 
+.notificationsBlock::before {
+    position: fixed;
+    content: "";
+    width: 20%;
+    height: 40%;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgb(195, 222, 248);
+    bottom: 5%;
+    left: 1%;
+}
+.notificationsBlock::after {
+    position: fixed;
+    content: "";
+    width: 30%;
+    height: 60%;
+    border-radius: 0 0 0 100%;
+    z-index: -1;
+    background: rgb(195, 222, 248);
+    top: 0;
+    right: 0;
+}
+
 .notificationsBlock .section {
     /* border: 2px solid; */
     min-width: 45%;

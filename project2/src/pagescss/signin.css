@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(247, 244, 238);
+    /* background-color: rgb(247, 244, 238); */
     animation: intro 0.45s linear;
 }
 @keyframes intro {
@@ -35,7 +35,7 @@
 .signin-block::before{
     position: absolute;
     border-radius: 0 0 0 100%;
-    background: radial-gradient(rgb(224, 206, 104), rgb(133, 106, 33));
+    background: radial-gradient(rgb(241, 235, 198), rgb(236, 226, 196));
     width: 20%;
     height: 40%;
     display: block;
@@ -46,7 +46,7 @@
 .signin-block::after{
     position: absolute;
     border-radius: 0 100% 0 0;
-    background: radial-gradient(rgb(224, 206, 104), rgb(133, 106, 33));
+    background: radial-gradient(rgb(241, 235, 198), rgb(228, 215, 179));
     width: 30%;
     height: 60%;
     display: block;
@@ -82,7 +82,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: 4px solid green;
+    border-right: 4px solid rgb(105, 128, 0) !important;
 }
 .formDiv1 img{
     width: 60%;

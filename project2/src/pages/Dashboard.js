@@ -18,6 +18,15 @@ const Dashboard = () => {
     }, []);
 
 
+    // Function pour ajouter chaque élément de allalertes dans disasterTab
+    function updateDisasterTab() {
+        // On ajoute chaque objet de allalertes dans la table disasterTab
+        for(let elt of allalertes){
+            disasterTab.unshift(elt);
+        }
+    }
+
+
     const disasterTab = [
         {
             id: 0,
@@ -124,36 +133,15 @@ const Dashboard = () => {
         })
     }
 
-    // Constante tableau de filtrage de recherches
-    // const [tabResearch, setTabResearch] = useState([]);
+    // Function qui fait des recherches par thème
+    function rechercheOnly(termeResearch) {
 
-    // function recherche(tem) {
-    //     if(tem){
-    //         setDisplayDefault(false); 
-    //         setDisplayResearch(true);
-    //         setTabResearch([]);
+        updateDisasterTab();
 
-    //         disasterTab.map((elt, index) => {
-    //         if((elt.nom.toLocaleLowerCase().includes(tem.toLocaleLowerCase())) || (elt.description.toLocaleLowerCase().includes(tem.toLocaleLowerCase())) || (elt.category.toLocaleLowerCase().includes(tem.toLocaleLowerCase()))){
-    //                tabResearch.push(elt);
-    //             }
-    //         })
-    //         tabResearchFound();
-        
-    //     }else{
-    //         setDisplayDefault(true); 
-    //         setDisplayResearch(false);
-    //     }
-    // }
-    function rechercheOnly() {
+        if(termeResearch.length > 0){
 
-        if(termeResearch){
-
-            setDisplayDefault(false); 
-            setDisplayResearch(true);
-
-            return disasterTab.map((elt, index) => {
-            if(elt.nom.toLocaleLowerCase().includes(termeResearch.toLocaleLowerCase()) || elt.description.toLocaleLowerCase().includes(termeResearch.toLocaleLowerCase()) || elt.category.toLocaleLowerCase().includes(termeResearch.toLocaleLowerCase())){
+            const disasters =  disasterTab.map((elt, index) => {
+            if(elt.nom.toLocaleLowerCase().includes(termeResearch.toLocaleLowerCase()) || elt.description.toLocaleLowerCase().includes(termeResearch.toLocaleLowerCase()) || elt.categorie.toLocaleLowerCase().includes(termeResearch.toLocaleLowerCase())){
                 
                 return (
                             <div className='section' key={index}>
@@ -167,24 +155,15 @@ const Dashboard = () => {
                 }
                 return null
             })
-        } else{
-                    setDisplayDefault(true); 
-                    setDisplayResearch(false);
-                }
+  
+            return disasters
+
+        } 
+
+             
+
     }
-    // function tabResearchFound() {
-    //     return tabResearch.map((elt, index) => {
-    //             return (
-    //                     <div className='section' key={index}>
-    //                     <img src={elt.image} alt={elt.nom}/>
-    //                     <div className='section2'>
-    //                         <h3>{elt.nom}</h3>
-    //                         <p>{elt.description}</p>
-    //                     </div>
-    //                     </div>
-    //                )
-    //         })
-    // }
+    
 
     // constante pour l'affichage des alertes par défaut
     const [displayDefault, setDisplayDefault] = useState(true);
@@ -193,22 +172,28 @@ const Dashboard = () => {
      const [displayResearch, setDisplayResearch] = useState(false);
 
      // terme recherché
-     const [termeResearch, setTermeResearch] = useState();
+     const [termeResearch, setTermeResearch] = useState('');
+
+     // constante pour la disposition des recherches
+     // const [dispose, setDispose] = useState(false);
 
     return (
         <>
         <div className='dashboardBlock'> 
             <Drawer /> 
-            <form>
-               <input type='search' id='terme' onChange={()=>{setTermeResearch(document.getElementById('terme').value); rechercheOnly()}} placeholder='Entrer une recherche' required/>
-               <input type='submit' value="Rechercher" onClick={()=>{}}/>
-            </form>
+            <div className='form'>
+               <input type='search' id='terme' onChange={(e)=>{
+                setTermeResearch(e.target.value);
+                if (e.target.value.length > 0) {setDisplayResearch(true); setDisplayDefault(false)} else {setDisplayResearch(false); setDisplayDefault(true)};
+                }} placeholder='Entrer une recherche' required/>
+               <button id='bouton' onClick={() => {setDisplayResearch(true);}}>Rechercher</button>
+            </div>
 
             {
                 displayResearch && (<>
                         <h2 id='titreNouvelle'>Resultats trouvés</h2>
                         <div className='lastNews'>
-                            {rechercheOnly}
+                            {rechercheOnly(termeResearch)}
                         </div>
                     </>)
             }

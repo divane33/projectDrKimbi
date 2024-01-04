@@ -61,6 +61,7 @@ const Notifications = () => {
     return (
         <div className='notificationsBlock'>
             <Drawer /> 
+            <h3 id="aucune">Voici les dernières alertes récentes<br/> ci-dessous:</h3>
             {recentAlerts()}
         </div>
     );

@@ -6,6 +6,30 @@
     margin-bottom: 5%;
 }
 
+.gerercatBlock::before {
+    position: fixed;
+    content: "";
+    width: 20%;
+    height: 40%;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgb(252, 206, 177);
+    top: 25%;
+    left: 1%;
+}
+.gerercatBlock::after {
+    position: fixed;
+    content: "";
+    width: 35%;
+    height: 70%;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgb(252, 206, 177);
+    bottom: 6%;
+    right: 2%;
+}
+
+
 .gerercatBlock h1{
     font-size: 40px;
     color: rgb(155, 154, 154);

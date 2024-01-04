@@ -7,6 +7,29 @@
     margin-bottom: 4%;
 }
 
+.ajoutCatBlock::before {
+    position: fixed;
+    content: "";
+    width: 20%;
+    height: 40%;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgb(221, 196, 181);
+    top: 15%;
+    left: 1%;
+}
+.ajoutCatBlock::after {
+    position: fixed;
+    content: "";
+    width: 30%;
+    height: 60%;
+    border-radius: 100% 0 0 0;
+    z-index: -1;
+    background: rgb(224, 207, 196);
+    bottom: 0;
+    right: 0;
+}
+
 .ajoutCatBlock h1{
     font-size: 29px;
     margin-top: 4%;
@@ -20,7 +43,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to right,rgb(243, 224, 188), rgb(248, 193, 91));
+    background: linear-gradient(to right,rgb(241, 214, 162), rgb(245, 181, 63));
     box-shadow: 4px 4px 9px black;
 }
 .ajoutCatBlock form input{

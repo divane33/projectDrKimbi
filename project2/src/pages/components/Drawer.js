@@ -43,24 +43,47 @@ const Drawer = () => {
 
     }, []);
 
-    useEffect(()=>{allnotifs()}, [])
+      // Fonction pour récupérer les utilisateurs et leurs nombres de notifications dans la BD
+      const [ID, setID] = useState([]);
+    //   const [etat, setEtat] = useState(true);
+    //   const [taille, setTaille] = useState(true);
 
-    // Fonction pour récupérer les utilisateurs et leurs nombres de notifications dans la BD
-    const [ID, setID] = useState([]);
-    function allnotifs() {
-        axios.get('http://localhost:8001/unread')
+      useEffect(()=>{
+        function allnotifs() {
+            axios.get('http://localhost:8001/unread')
+            .then(res => {
+    
+                let taille = 1;
+                for(let elt of res.data){
+                    
+                    if(elt.user === localStorage.getItem('username')){
+                        setID(elt.id);
+                        localStorage.setItem("nbnotifications", elt.nbnotifs); 
+                        //setEtat(false);
+                        return
+                    }else if(taille === res.data.length && !localStorage.getItem('username')){
+                        navigate("/signin");
+                    }
+                    taille++;
+               }
+    
+            })
+            .catch(err => console.log(err));
+        }
+        allnotifs()
+    }, [navigate])
+
+
+    // Fonction qui enclenche et valide la suppression d'un utilisateur
+    function deleteUser(id) {
+        //alert(id)
+        axios.delete('http://localhost:8081/deleteUser/'+id, {})
         .then(res => {
-
-            for(let elt of res.data){
-                if(elt.user === localStorage.getItem('username')){
-                   setID(elt.id);
-                    localStorage.setItem("nbnotifications", elt.nbnotifs); 
-                }
-           }
-
+            console.log(res);
         })
         .catch(err => console.log(err));
-    }
+     }
+
 
     // Fonction permettant de retirer le marqueur rouge une fois qu'un utilisateur clique sur la cloche
     function removeMark() {
@@ -117,7 +140,8 @@ const Drawer = () => {
               </span>
               <div className='sectionNotifs'>
                  <img src={logout} id='logout' alt='profil' onClick={()=>{
-                    window.location.href = "http://localhost:3000/"
+                    navigate("/signin");
+                    localStorage.setItem("username", '');
                  }}/>
                  <div id='bellBlock'>
                     <span style={{
@@ -160,7 +184,7 @@ const Drawer = () => {
                 <button><Link to="/gerer">Gérer les Alertes</Link></button>
                 <button onClick={()=>{removeMark(); provideAlerts(); navigate('/notifications');}}>Alertes récentes</button>
                 <button style={{display: manage}}><Link to="/management">Gérer Utilisateurs</Link></button>
-                <button><Link to="/signup">Supprimer Compte</Link></button>
+                <button onClick={() => {deleteUser(id); localStorage.setItem("username", '')}}><Link to="/home">Supprimer Compte</Link></button>
                 </div>
             </div>
 

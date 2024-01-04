@@ -7,6 +7,29 @@
     text-align: center;
 }
 
+.manageBlock::before {
+    position: fixed;
+    content: "";
+    width: 20%;
+    height: 40%;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgb(195, 222, 248);
+    bottom: 15%;
+    left: 1%;
+}
+.manageBlock::after {
+    position: fixed;
+    content: "";
+    width: 35%;
+    height: 70%;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgb(195, 222, 248);
+    top: 20%;
+    right: 0;
+}
+
 .manageBlock h1 {
     font-size: 30px;
     margin-top: 2%;

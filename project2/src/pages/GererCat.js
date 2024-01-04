@@ -43,7 +43,17 @@ const GererCat = () => {
           console.log(res);
       })
       .catch(err => console.log(err));
-}
+    }
+
+    // Fonction pour mettre à jour l'alerte d'un utilisateur
+    function suppAlert(id) {
+      //const actifUser = localStorage.getItem("username");
+      axios.delete('http://localhost:8000/deleteAlerte/'+id, {})
+      .then(res => {
+          console.log(res);
+      })
+      .catch(err => console.log(err));
+    }
 
     // Constante pour afficher la div de modification d'une alerte avec ses différentes constantes
     const [modifDiv, setModifDiv] = useState('none');
@@ -97,7 +107,7 @@ const GererCat = () => {
                               setCategorienot(categorie);
                               setImagenot(image);
                               }}>Modifier</button>
-                            <button>Supprimer</button>
+                            <button onClick={() => {suppAlert(elt.id); alert("Alerte supprimée avec succès !"); window.location.reload()}}>Supprimer</button>
                           </div>
                       </div>
                    )
@@ -120,11 +130,11 @@ const GererCat = () => {
             {displayAlerts()}
 
             <div className='divModification' style={{display: modifDiv}}>
-                <form>
+                <form onSubmit={(event) => {event.preventDefault(); alert("Modification éffectuée avec succès !"); window.location.reload(); updateAlert(idnotif);}}>
                      <label>Nom:</label>
-                       <input type='text' onChange={e => setNomnot(e.target.value)} value={nomnot}/>
+                       <input type='text' onChange={e => setNomnot(e.target.value)} value={nomnot} maxLength="40" />
                      <label>Description:</label>
-                          <input type='text' onChange={e => setDescriptionnot(e.target.value)} value={descriptionnot}/>
+                          <input type='text' onChange={e => setDescriptionnot(e.target.value)} value={descriptionnot} maxLength="200"/>
                      <label>Catégorie:</label>
                             <select id='selections' onChange={e => setCategorienot(e.target.value)} value={categorienot} required>
                               <option>géologiques</option>
@@ -134,7 +144,7 @@ const GererCat = () => {
                      <label id='labelfile'>Ajouter une image:</label>
                           <input id="file" onChange={uploadImg} type='file'/>
                           <img src={imagenot} alt='aucuneImage'/>
-                            <input type='submit' value="Modifier" onClick={() => {updateAlert(idnotif)}} id='bouton1' />
+                            <input type='submit' value="Modifier" id='bouton1' />
                             <input type='cancel' value='Annuler' onClick={() => {setModifDiv('none')}} id='bouton2' />
                 </form>
             </div>

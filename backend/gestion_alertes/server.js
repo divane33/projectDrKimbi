@@ -44,15 +44,20 @@ app.post('/addAlert', (req, res) => {
 
 // API pour mettre à jour (PUT Method) des alertes dans la BD
 app.put('/updatealerte/:id', (req, res) => {
-    const noti = [
-        req.body.nomnot,
-        req.body.descriptionnot,
-        req.body.categorienot,
-        req.body.imagenot,
-    ];
+    const { nomnot, descriptionnot, categorienot, imagenot } = req.body;
     const id = req.params.id;
     const sql = "UPDATE alertes SET `nom` = ?, `description` = ?, `categorie` = ?, `image` = ? WHERE `id` = ?";
-    db.query(sql, [noti, id], (err, data) => {
+    db.query(sql, [nomnot, descriptionnot, categorienot, imagenot, id], (err, data) => {
+        if (err) return res.json("error");
+        return res.json(data);
+    })
+})
+
+// API pour la suppression d'une alerte particulière dans la BD
+app.delete('/deleteAlerte/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = "DELETE FROM alertes WHERE `id` = ?";
+    db.query(sql, [id], (err, data) => {
         if (err) return res.json("error");
         return res.json(data);
     })

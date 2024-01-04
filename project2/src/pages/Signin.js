@@ -41,7 +41,7 @@ const Signin = () => {
             <div className='formDiv'>
                 <div className='formDiv1'>
                  <img src={siteLogo} alt='siteLogo' onClick={() => {
-                window.location.href = "http://localhost:3000/home";
+                navigate("/home");
               }}/>
                   <span>Pas encore Inscrit ?</span>
                   <span><Link to="/signup">S'inscrire</Link></span>
