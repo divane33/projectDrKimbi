@@ -16,27 +16,31 @@ const Drawer = () => {
     const [id, setId] = useState();
 
     // Constante qui permet d'afficher le point rouge de la cloche
-    const [onBell, setOnBell] = useState('none');
+    const [onBell, setOnBell] = useState(false);
 
     // Partie pour recupérer tous les utilisateurs de la BD (ceci c'est pour eviter d'enregistrer des mêmes infos)
     // const [users, setUsers] = useState([]);
+    //const [alertnotif, setAlertnotif] = useState(1);
     useEffect(() => {
 
         axios.get('http://localhost:8081/users')
         .then(res => {
            // setUsers(res.data)
-           setInterval(()=>{
+           
+        setInterval(()=>{   
+
             for(let elt of res.data){
                  if(elt.username === localStorage.getItem('username')){
                     setId(elt.id);
                     if(elt.notification === 'oui'){
-                         setOnBell('block');
-                         // return
+                         setOnBell(true);
                     }
+
                         //  setOnBell('none');
                         //  return
                  }
-            } //alert("ok !")
+            }
+            //alert("ok !")
         }, 500);
         })
         .catch(err => console.log(err));
@@ -144,14 +148,14 @@ const Drawer = () => {
                     localStorage.setItem("username", '');
                  }}/>
                  <div id='bellBlock'>
-                    <span style={{
+                    {onBell && (<span style={{
                         borderWidth: 2,
                         borderColor: 'red',
                         width: 20,
                         height: 20,
                         position: 'absolute',
-                        display: onBell
-                    }} id='marqueur'></span><img src={bell} id='bell' alt='profil' onClick={()=>{
+                        // display: onBell
+                    }} id='marqueur'></span>)}<img src={bell} id='bell' alt='profil' onClick={()=>{
                         removeMark();
                         provideAlerts();
                         navigate('/notifications');

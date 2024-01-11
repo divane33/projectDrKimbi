@@ -1,0 +1,46 @@
+{
+  "cli": {
+    "version": ">= 5.3.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
+
+// {
+//   "cli": {
+//     "version": ">= 5.3.0"
+//   },
+//   "build": {
+//     "development": {
+//       "distribution": "internal",
+//       "android": {
+//         "gradleCommand": ":app:assembleDebug"
+//       },
+//       "ios": {
+//         "buildConfiguration": "Debug"
+//       }
+//     },
+//     "preview": {
+//       "distribution": "internal"
+//     },
+//     "production": {}
+//   },
+//   "submit": {
+//     "production": {}
+//   }
+// }
